@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ITRack</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js" integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <style>
         div img{max-width: 100%;}
@@ -19,7 +20,7 @@
                 
                 <h2 class="text-center"><img src="img/emblem.jpg" alt="" style="opacity: 0.3;max-height: 300px;"><br>ITRack</h2>
                 <p class="text-right text-secondary">&#x20B9;53,959 Crore ITR accounted for.<br>1,34,834 people has joined till date.</p>
-                <form action="">
+                <form action="verify" method="post" class=" text-right">
                     <input type="text" class="form-control mb-2" placeholder="ABCDE1234Z">
                     <select class="form-control mb-2">
                         <option>AY24-25</option>
@@ -37,7 +38,26 @@
                         <span class="input-group-text">&#x20B9;</span>
                         <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
                         <span class="input-group-text">.00</span>
-                      </div>
+                    </div>
+                    <input type="submit" value="Add to Blockchain" class="btn btn-dark"> 
+                    <!-- <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom">
+                        <i class="fa fa-info-circle"></i> 
+                    </button> -->
+                    <button type="button" class="btn btn-primary" id="liveToastBtn"><i class="fa fa-info-circle"></i> </button>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+        <i class="fa fa-info-circle"></i> 
+      <strong class="me-auto"> &nbsp;&nbsp; Note</strong>
+      <small>Now</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Please make sure you are putting verified data on the block-chain. Spurious data will lead to loss of trust on the individual.
+    </div>
+  </div>
+</div>
                 </form>
                 <hr>
                 <h4>Benefits</h4>
@@ -51,4 +71,15 @@
         </div>
     </div>
 </body>
+<script>
+const toastTrigger = document.getElementById('liveToastBtn')
+const toastLiveExample = document.getElementById('liveToast')
+
+if (toastTrigger) {
+  const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+  toastTrigger.addEventListener('click', () => {
+    toastBootstrap.show()
+  })
+}
+</script>
 </html>
